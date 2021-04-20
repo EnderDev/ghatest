@@ -19,6 +19,7 @@ jobs:
             - name: Release
               uses: dothq/tag-and-release-and-upload@master
               with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
                 version: "${{ github.sha }}"
                 name: "${{ github.sha }}"
                 assets: '[
