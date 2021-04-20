@@ -13,3 +13,20 @@ jobs:
             - name: test
               run: |
                 python3 test.py
+                echo "fgdfsg" >> a.txt
+                echo "fgdfs3423g" >> b.txt
+                echo "fg234g" >> c.txt
+
+            - name: Release
+              uses: dothq/tag-and-release-and-upload@master
+              with:
+                github-token: ${{ secrets.ROBOT_TOKEN }}
+                version: "${{ needs.build-data.outputs.version }}-${{ needs.build-data.outputs.build_date }}"
+                name: "Nightly v${{ needs.build-data.outputs.version }} (${{ needs.build-data.outputs.build_date }})"
+                assets: '[
+                  "a.txt",
+                  "b.txt",
+                  "c.txt"
+                ]'
+                body_path: "/home/runner/work/browser-desktop/browser-desktop/.github/RELEASE_TEMPLATE.md"
+                overwrite: true
