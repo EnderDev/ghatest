@@ -12,7 +12,6 @@ jobs:
 
             - name: test
               run: |
-                python3 test.py
                 echo "fgdfsg" >> a.txt
                 echo "fgdfs3423g" >> b.txt
                 echo "fg234g" >> c.txt
