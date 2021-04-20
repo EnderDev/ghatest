@@ -20,13 +20,11 @@ jobs:
             - name: Release
               uses: dothq/tag-and-release-and-upload@master
               with:
-                github-token: ${{ secrets.ROBOT_TOKEN }}
-                version: "${{ needs.build-data.outputs.version }}-${{ needs.build-data.outputs.build_date }}"
-                name: "Nightly v${{ needs.build-data.outputs.version }} (${{ needs.build-data.outputs.build_date }})"
+                version: "${{ github.sha }}"
+                name: "${{ github.sha }}"
                 assets: '[
                   "a.txt",
                   "b.txt",
                   "c.txt"
                 ]'
-                body: "fsdg"
                 overwrite: true
