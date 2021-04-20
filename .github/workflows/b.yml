@@ -28,5 +28,5 @@ jobs:
                   "b.txt",
                   "c.txt"
                 ]'
-                body_path: "/home/runner/work/browser-desktop/browser-desktop/.github/RELEASE_TEMPLATE.md"
+                body: "fsdg"
                 overwrite: true
